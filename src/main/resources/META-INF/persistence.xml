@@ -6,10 +6,11 @@
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
             <property name = "jakarta.persistence.jdbc.url"
-                      value = "jdbc:mysql://localhost/test_DB"/>
+                      value = "jdbc:mysql://localhost/JPA-In-Action"/>
             <property name = "jakarta.persistence.jdbc.user" value = "root"/>
             <property name="jakarta.persistence.jdbc.password" value="1234"/>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.show_sql" value="true"/>
         </properties>
     </persistence-unit>
 </persistence>
