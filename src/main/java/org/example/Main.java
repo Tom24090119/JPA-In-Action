@@ -1,13 +1,17 @@
 package org.example;
 
-/**
- * Hello world!
- *
- */
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+
 public class Main
 {
-    public static void main( String[] args )
+    public static void main(String[] args)
     {
-        System.out.println( "Hello World!" );
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-persistence-unit");
+        EntityManager entityManager = emf.createEntityManager();
+
+        entityManager.getTransaction().commit();
+        entityManager.close();
     }
 }
