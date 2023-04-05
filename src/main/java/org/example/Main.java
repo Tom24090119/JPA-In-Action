@@ -4,15 +4,25 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-public class Main
-{
-    public static void main(String[] args)
-    {
+public class Main {
+    public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-persistence-unit");
         EntityManager entityManager = emf.createEntityManager();
-        entityManager.getTransaction().begin();
+        try {
+            entityManager.getTransaction().begin();
 
-        entityManager.getTransaction().commit();
-        entityManager.close();
+            //Put your work with entity here
+
+            entityManager.getTransaction().commit();
+        }
+        catch (Exception e) {
+            entityManager.getTransaction().rollback();
+            //log the error here
+        }
+        finally {
+            entityManager.close();
+        }
+
+
     }
 }
