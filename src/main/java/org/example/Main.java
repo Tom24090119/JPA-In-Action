@@ -18,11 +18,6 @@ public class Main
         userInfo.setHappy(true);
         userInfo.setStatus(Status.SINGLE);
 
-        UserInfo userInfo2 = new UserInfo();
-        userInfo2.setUserName("User 2");
-        userInfo2.setHappy(false);
-        userInfo2.setStatus(Status.MARRIED);
-
         entityManager.persist(userInfo);
 
         entityManager.getTransaction().commit();
