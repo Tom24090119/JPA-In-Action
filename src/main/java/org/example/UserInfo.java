@@ -28,7 +28,7 @@ public class UserInfo {
     private boolean isHappy;
 
     @Enumerated(value = EnumType.STRING)
-    @Basic(optional = false)
+    @Basic(fetch = FetchType.LAZY,optional = false)
     private Status status;
 
     public int getId() {
@@ -54,22 +54,11 @@ public class UserInfo {
     public void setHappy(boolean happy) {
         isHappy = happy;
     }
-
     public Status getStatus() {
         return status;
     }
 
     public void setStatus(Status status) {
         this.status = status;
-    }
-
-    @Override
-    public String toString() {
-        return "UserInfo{" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", isHappy=" + isHappy +
-                ", status=" + status +
-                '}';
     }
 }

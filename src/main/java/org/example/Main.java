@@ -24,9 +24,12 @@ public class Main
         userInfo2.setStatus(Status.MARRIED);
 
         entityManager.persist(userInfo);
-        entityManager.persist(userInfo2);
 
         entityManager.getTransaction().commit();
+
+        UserInfo info = entityManager.find(UserInfo.class,1);
+        System.out.println(info);
+
         entityManager.close();
     }
 }
