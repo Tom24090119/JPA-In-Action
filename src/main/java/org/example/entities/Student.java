@@ -19,7 +19,7 @@ public class Student {
 
     private String name;
 
-    @OneToOne(optional = false)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "student_detail")
     private StudentDetails studentDetails;
 
@@ -47,12 +47,12 @@ public class Student {
         this.studentDetails = studentDetails;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", studentDetails=" + studentDetails +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Student{" +
+//                "id=" + id +
+//                ", name='" + name + '\'' +
+//                ", studentDetails=" + studentDetails +
+//                '}';
+//    }
 }

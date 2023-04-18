@@ -29,6 +29,9 @@ public class Main {
         entityManager.persist(student);
 
         entityManager.getTransaction().commit();
+
+        Student s = entityManager.find(Student.class,1);
+        System.out.println(s.getStudentDetails());
         entityManager.close();
     }
 
