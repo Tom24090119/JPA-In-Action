@@ -23,7 +23,7 @@ public class Department {
     private String name;
 
     @OneToMany
-    @JoinTable(name = "depart_emp")
+    @JoinTable(name = "depart_emp",joinColumns = @JoinColumn(name = "depart_id") , inverseJoinColumns = @JoinColumn(name = "emp_id"))
     private List<Employee> employees;
 
     public int getId() {
