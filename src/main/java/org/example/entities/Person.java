@@ -1,9 +1,8 @@
 package org.example.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 /**
  * CREATE TABLE `JPA-In-Action`.`person` (
@@ -21,6 +20,9 @@ public class Person {
 
     private String name;
 
+    @OneToMany(mappedBy = "person",cascade = CascadeType.PERSIST)
+    private List<Car> cars;
+
     public int getId() {
         return id;
     }
@@ -31,5 +33,13 @@ public class Person {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
     }
 }

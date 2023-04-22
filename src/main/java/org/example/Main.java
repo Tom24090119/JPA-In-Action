@@ -6,16 +6,14 @@ import jakarta.persistence.Persistence;
 import org.example.entities.Car;
 import org.example.entities.Person;
 
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-persistence-unit");
         EntityManager entityManager = emf.createEntityManager();
 
         entityManager.getTransaction().begin();
-
-        //What if we want to know all the cars that a person has
-        //i.e how to make a bidirectional relationship
-
 
         Person p = new Person();
         p.setName("Person 1");
@@ -29,13 +27,13 @@ public class Main {
         c1.setPerson(p);
         c2.setPerson(p);
 
+        p.setCars(List.of(c1,c2));
+
         entityManager.persist(p);
         entityManager.persist(c1);
         entityManager.persist(c2);
 
         entityManager.getTransaction().commit();
         entityManager.close();
-
-
     }
 }
