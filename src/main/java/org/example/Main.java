@@ -13,6 +13,10 @@ public class Main {
 
         entityManager.getTransaction().begin();
 
+        //What if we want to know all the cars that a person has
+        //i.e how to make a bidirectional relationship
+
+
         Person p = new Person();
         p.setName("Person 1");
 
