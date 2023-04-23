@@ -8,20 +8,18 @@ public class Main {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-persistence-unit");
         EntityManager entityManager = emf.createEntityManager();
-        try {
-            entityManager.getTransaction().begin();
 
-            //Put your work with entity here
+        entityManager.getTransaction().begin();
 
-            entityManager.getTransaction().commit();
-        }
-        catch (Exception e) {
-            entityManager.getTransaction().rollback();
-            //log the error here
-        }
-        finally {
-            entityManager.close();
-        }
+        Person p = new Person();
+        p.setName("Person 1");
+        p.getPhoneNumbers().put(PhoneType.HOME,"1234");
+        p.getPhoneNumbers().put(PhoneType.OFFICE,"5678");
+
+        entityManager.persist(p);
+
+        entityManager.getTransaction().commit();
+        entityManager.close();
 
 
     }
