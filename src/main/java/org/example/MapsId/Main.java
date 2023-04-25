@@ -32,7 +32,7 @@ public class Main {
 
         entityManager.getTransaction().commit();
 
-        Department d = entityManager.find(Department.class,4);
+        Department d = entityManager.find(Department.class,1);
         System.out.println(d.getEmployees());
         entityManager.close();
     }
