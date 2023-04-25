@@ -1,4 +1,4 @@
-package org.example;
+package org.example.elementCollection;
 
 import jakarta.persistence.*;
 
@@ -32,9 +32,5 @@ public class Person {
 
     public Map<PhoneType, String> getPhoneNumbers() {
         return phoneNumbers;
-    }
-
-    public void setPhoneNumbers(Map<PhoneType, String> phoneNumbers) {
-        this.phoneNumbers = phoneNumbers;
     }
 }
